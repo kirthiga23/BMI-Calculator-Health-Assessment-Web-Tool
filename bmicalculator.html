@@ -1,0 +1,154 @@
+
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Temperature Converter</title>
+<style> body { display: flex;
+justify-content: center; align-items: center; height: 100vh;
+background-color: #f4f4f4; opacity: 1;
+}
+.container { background: white; padding: 20px; border-radius: 8px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+text-align: center;
+}
+input, button { margin: 10px; padding: 8px; font-size: 16px;
+
+}
+button {
+
+cursor: pointer; background: #007BFF; color: white;
+border: none; border-radius: 5px;
+}
+
+button:hover { background: pink;
+}
+.result {
+
+margin-top: 15px; font-weight: bold;
+}
+input[type=number] {
+
+-moz-appearance: textfield;
+
+}
+
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+-webkit-appearance: none;
+ 
+margin: 0;
+}
+
+</style>
+
+</head>
+<body>
+
+
+
+<div class="container">
+
+<h2>Temperature Converter</h2>
+<input type="number" id="temperature" placeholder="Enter temperature" step="any">
+
+
+
+<div>
+
+<label>
+
+<input type="radio" name="unit" value="celsius" checked>Celsius
+</label>
+
+<label>
+
+<input type="radio" name="unit" value="fahrenheit">Fahrenheit
+
+</label>
+
+</div>
+
+
+<button onclick="convertTemperature()">Convert</button>
+
+
+
+<div class="result" id="result"></div>
+</div>
+ 
+<script>
+function convertTemperature() {
+
+let tempInput = document.getElementById("temperature").value;
+
+let unit = document.querySelector('input[name="unit"]:checked').value; let resultElement = document.getElementById("result");
+
+
+if (tempInput === "") {
+
+resultElement.innerHTML = "Please enter a temperature!"; return;
+}
+
+
+
+let temperature = parseFloat(tempInput); let result;
+
+if (unit === "celsius") {
+
+result = (temperature - 32) * 5/9;
+
+resultElement.innerHTML = `${temperature}°F = ${result.toFixed(2)}°C`;
+
+} else {
+result = (temperature * 9/5) + 32;
+
+resultElement.innerHTML = `${temperature}°C = ${result.toFixed(2)}°F`;
+
+}
+
+}
+</script>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
